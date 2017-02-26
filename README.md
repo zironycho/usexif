@@ -24,7 +24,7 @@ ret['taken_date']
 # datetime.datetime(2016, 4, 18, 10, 41, 6)
 ```
 
-## used parser
+## Dependencies
 ```
-exif-py
+[exif-py](https://github.com/ianare/exif-py)
 ```
