@@ -1,5 +1,7 @@
 # usexif
 Geographic Coordinate(longitude, latitude, and altitude) from raw EXIF data
+[![Build Status](https://travis-ci.org/zironycho/usexif.svg?branch=master)](https://travis-ci.org/zironycho/usexif)
+
 
 ## Install
 ```
