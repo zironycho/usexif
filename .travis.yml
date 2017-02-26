@@ -11,7 +11,9 @@ branches:
     - master
 
 # command to install dependencies
-install: "pip install pypandoc"
+install: 
+  - "pip install pypandoc"
+  - "pip install -r requirements.txt"
 
 # command to run tests
 script: nosetests
