@@ -28,6 +28,4 @@ ret['taken_date']
 ```
 
 ## Dependencies
-```
-[exif-py](https://github.com/ianare/exif-py)
-```
+- [exif-py](https://github.com/ianare/exif-py)
