@@ -6,27 +6,28 @@ def _ratio2float(ratio):
 
 
 def latitude(tags):
-    try:
-        ref = str(tags['GPS GPSLatitudeRef'].values)
-    except KeyError:
+    if 'GPS GPSLatitude' not in tags:
         return False
 
-    neg = (ref == 'S')
+    neg = False
+    if 'GPS GPSLatitudeRef' in tags:
+        ref = str(tags['GPS GPSLatitudeRef'].values)
+        neg = (ref == 'S')
 
     lat = _ratio2float(tags['GPS GPSLatitude'].values[0])
     lat += _ratio2float(tags['GPS GPSLatitude'].values[1]) / 60
     lat += _ratio2float(tags['GPS GPSLatitude'].values[2]) / 3600
-
     return -lat if neg else lat
 
 
 def longitude(tags):
-    try:
-        ref = tags['GPS GPSLongitudeRef'].values
-    except KeyError:
+    if 'GPS GPSLongitude' not in tags:
         return False
 
-    neg = (ref == 'W')
+    neg = False
+    if 'GPS GPSLongitudeRef' in tags:
+        ref = tags['GPS GPSLongitudeRef'].values
+        neg = (ref == 'W')
 
     long = _ratio2float(tags['GPS GPSLongitude'].values[0])
     long += _ratio2float(tags['GPS GPSLongitude'].values[1]) / 60
@@ -35,12 +36,13 @@ def longitude(tags):
 
 
 def altitude(tags):
-    try:
-        ref = tags['GPS GPSAltitudeRef'].values
-    except KeyError:
-        return 0
+    if 'GPS GPSAltitude' not in tags:
+        return False
 
-    neg = (ref == 1)
+    neg = False
+    if 'GPS GPSAltitudeRef' in tags:
+        ref = tags['GPS GPSAltitudeRef'].values
+        neg = (ref == 1)
 
     alt = _ratio2float(tags['GPS GPSAltitude'].values[0])
     return -alt if neg else alt

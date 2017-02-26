@@ -1,4 +1,3 @@
-import json
 import exifread
 
 from . import date

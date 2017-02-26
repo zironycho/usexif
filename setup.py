@@ -1,4 +1,3 @@
-#from distutils.core import setup
 from setuptools import setup
 import pypandoc
 import os
@@ -6,7 +5,7 @@ import os
 
 readme_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'README.md')
 long_desc = pypandoc.convert('README.md', 'rst')
-version='1.0.1'
+version = '1.0.2'
 
 setup(
     name='usexif',
@@ -22,6 +21,6 @@ setup(
     license='MIT',
     classifiers=[],
     install_requires=[
-       'exifread>=2.1.2'
+       'exifread'
     ],
 )
