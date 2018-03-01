@@ -5,7 +5,7 @@ import os
 
 readme_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'README.md')
 long_desc = pypandoc.convert('README.md', 'rst')
-version = '1.0.2'
+version = '1.0.3'
 
 setup(
     name='usexif',
